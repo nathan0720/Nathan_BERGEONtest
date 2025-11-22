@@ -38,7 +38,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(5, 5, 5, 0.85); 
+    background-color: rgba(5, 5, 5, 0.01); 
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     /* On retire le padding vertical fixe pour laisser la place au menu mobile si besoin */
@@ -172,6 +172,10 @@ h1 {
     letter-spacing: -2px;
 }
 
+.lien {
+    text-decoration: underline;
+}
+
 .gradient-text {
     background: linear-gradient(90deg, #3b82f6 0%, #22d3ee 100%);
     -webkit-background-clip: text;
@@ -300,7 +304,7 @@ h1 {
 }
 
 /* --- RESPONSIVE (Mobile) --- */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
     body {
         padding-top: 70px;
     }
