@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Nathan Bergeon - Contact</title> <link rel="stylesheet" href="style.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-container"> <div class="logo">Nathan Bergeon</div> <nav class="desktop-nav"> <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="chronologie.html">Chronologie</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="contact.html" class="active-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-btn" onclick="toggleMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Accueil</a>
+            <a href="chronologie.html">Chronologie</a>
+            <a href="projets.html">Projets</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-title"> <h1>Me Contacter</h1>
+            <p>Une question ou une opportunité ? N'hésitez pas à m'envoyer un message.</p>
+        </div>
+
+        <div class="contact-grid-layout">
+            
+            <div class="contact-info-box">
+                <h3>Mes Coordonnées</h3> <p class="info-intro"></p>
+                
+                <div class="info-item">
+                    <span class="info-icon">📞</span> <div>
+                        <span class="info-label">Téléphone</span>
+                        <p class="info-value"><a href="tel:+330749725817">07 49 72 58 17</a></p> </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">📧</span> <div>
+                        <span class="info-label">Email</span>
+                        <p class="info-value"><a href="nathan.bergeon@gmail.com"></a>nathan.bergeon@gmail.com</p> </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">📍</span> <div>
+                        <span class="info-label">Localisation</span>
+                        <p class="info-value">Menucourt 95180, France</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-box">
+                <form action="https://formspree.io/f/mrbdyage" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" placeholder="Le sujet de votre message" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Votre message ici..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Nathan Bergeon. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
