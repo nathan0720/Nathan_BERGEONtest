@@ -306,66 +306,6 @@ h1 {
     opacity: 0.9;
 }
 
-/* --- RESPONSIVE (Mobile) --- */
-@media (max-width: 900px) {
-    body {
-        padding-top: 70px;
-    }
-    
-    /* Cacher le menu desktop */
-    .desktop-nav {
-        display: none;
-    }
-
-    /* Afficher le bouton hamburger */
-    .hamburger-btn {
-        display: block;
-    }
-
-    /* Styles du corps de page sur mobile */
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 2rem;
-        gap: 3rem;
-        
-    }
-
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    /* CORRECTION DU DÉPASSEMENT : Taille de police réduite */
-    h1 { 
-        font-size: 2.5rem; /* Réduction à 2.5rem pour éviter le débordement */
-        /* Vous pouvez aussi utiliser font-size: 8vw; pour plus de flexibilité sur petits écrans */
-    } 
-    
-    .description {
-        font-size: 1rem;
-        padding: 0 1rem; /* Ajout d'un petit padding pour l'esthétique */
-    }
-    
-    .cta-group { justify-content: center; }
-    
-    .social-icons { justify-content: center; width: 100%; }
-
-    .hero-image {
-        padding-right: 0;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .image-card {
-        width: 100%;
-        max-width: 350px;
-        height: 350px;
-    }
-    
-    .glow-effect { left: 50%; width: 100%; }
-}
 
 /* --- PAGE CHRONOLOGIE --- */
 
@@ -509,7 +449,7 @@ h1 {
 }
 
 /* --- RESPONSIVE TIMELINE (Mobile) --- */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     /* La ligne se déplace à gauche */
     .timeline::after {
         left: 31px;
@@ -534,4 +474,63 @@ h1 {
         left: 11px; 
         right: auto;
     }
+
+
+    body {
+        padding-top: 70px;
+    }
+    
+    /* Cacher le menu desktop */
+    .desktop-nav {
+        display: none;
+    }
+
+    /* Afficher le bouton hamburger */
+    .hamburger-btn {
+        display: block;
+    }
+
+    /* Styles du corps de page sur mobile */
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 2rem;
+        gap: 3rem;
+        
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* CORRECTION DU DÉPASSEMENT : Taille de police réduite */
+    h1 { 
+        font-size: 2.5rem; /* Réduction à 2.5rem pour éviter le débordement */
+        /* Vous pouvez aussi utiliser font-size: 8vw; pour plus de flexibilité sur petits écrans */
+    } 
+    
+    .description {
+        font-size: 1rem;
+        padding: 0 1rem; /* Ajout d'un petit padding pour l'esthétique */
+    }
+    
+    .cta-group { justify-content: center; }
+    
+    .social-icons { justify-content: center; width: 100%; }
+
+    .hero-image {
+        padding-right: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .image-card {
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+    }
+    
+    .glow-effect { left: 50%; width: 100%; }
 }
