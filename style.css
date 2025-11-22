@@ -303,56 +303,51 @@ h1 {
     opacity: 0.9;
 }
 
-/* --- RESPONSIVE (Mobile) --- */
-@media (max-width: 1100px) {
-    body {
-        padding-top: 70px;
-    }
 
-    /* Cacher le menu desktop */
-    .desktop-nav {
-        display: none;
-    }
-
-    /* Afficher le bouton hamburger */
-    .hamburger-btn {
-        display: block;
-    }
-
-    /* Styles du corps de page sur mobile */
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 2rem;
-        gap: 3rem;
-    }
-
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    h1 { font-size: 3rem; }
+/* --- RESPONSIVE TIMELINE (Mobile) --- */
+@media screen and (max-width: 768px) {
     
-    .cta-group { justify-content: center; }
-    
-    .social-icons { justify-content: center; width: 100%; }
+    /* 1. On réduit le padding du conteneur global pour gagner de la place sur les bords */
+    .container {
+        padding: 0 1rem; /* Passe de 2rem (32px) à 1rem (16px) */
+    }
 
-    .hero-image {
-        padding-right: 0;
-        justify-content: center;
+    /* 2. Ajustement de la ligne verticale */
+    .timeline::after {
+        left: 31px;
+    }
+    
+    /* 3. Les items prennent toute la largeur */
+    .timeline-item {
         width: 100%;
-    }
-
-    .image-card {
-        width: 100%;
-        max-width: 350px;
-        height: 350px;
+        padding-left: 70px; /* Espace pour la ligne et l'icone */
+        padding-right: 15px; /* Réduit de 25px à 15px pour gagner de l'espace */
+        text-align: left !important; /* Force l'alignement gauche */
     }
     
-    .glow-effect { left: 50%; width: 100%; }
+    /* 4. Réinitialisation stricte de la position pour les items de droite */
+    .timeline-item.right {
+        left: 0 !important; /* Ajout de !important pour être sûr que le 50% du desktop est écrasé */
+    }
+    
+    /* 5. Repositionnement des icones */
+    .timeline-item.left .timeline-icon, 
+    .timeline-item.right .timeline-icon {
+        left: 11px; 
+        right: auto;
+    }
+
+    /* 6. CRUCIAL : Empêcher le texte de déborder */
+    .timeline-content {
+        /* Si un mot est trop long, il sera coupé pour aller à la ligne suivante */
+        overflow-wrap: break-word; 
+        word-wrap: break-word;
+        hyphens: auto;
+        width: 100%; /* S'assure que la boite ne dépasse pas */
+    }
 }
+
+
 /* --- PAGE CHRONOLOGIE --- */
 
 .page-title {
