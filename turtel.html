@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets Python Turtle - Nathan Bergeon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">Nathan Bergeon</div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="chronologie.html">Chronologie</a></li>
+                    <li><a href="projets.html" class="active-link">Projets</a></li> 
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-btn" onclick="toggleMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Accueil</a>
+            <a href="chronologie.html">Chronologie</a>
+            <a href="projets.html">Projets</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <section class="project-hero" style="background-image: url('./images/logo_turtel.jpg');">
+        <div class="project-hero-overlay"></div>
+        <div class="container project-hero-content">
+            <a href="projets.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Retour aux projets
+            </a>
+            
+            <h1>Collection Turtle</h1>
+            
+            <div class="project-meta-badges">
+                <span class="meta-badge type">GRAPHIQUE</span>
+                <span class="meta-badge date">2024</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container project-layout">
+        
+        <main class="project-main-content">
+            
+            <div class="project-section">
+                <h2 class="section-title">Présentation</h2>
+                <p>
+                    Voici une collection de mes différents algorithmes réalisés avec le module Turtle. 
+                    Chaque carte ci-dessous représente un script différent, allant de formes géométriques simples à des structures complexes.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2 class="section-title">Mes Créations</h2>
+                
+                <div class="projets-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                    
+                    <div class="project-card" style="--bg-url: url('./images/turtel/maison.jpg'); min-height: 350px;">
+                        <h3>Maison</h3>
+                        <p></p>
+                        <div class="card-actions">
+                            <a href="maison.html" class="action-link">
+                                Voir le code
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" style="--bg-url: url('./images/Turtel/Hand_Spiner.jpg'); min-height: 350px;">
+                        <h3>Hand Spiner</h3>
+                        <p></p>
+                        <div class="card-actions">
+                            <a href="Hand_Spiner.html" class="action-link">
+                                Voir le code
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+        <aside class="project-sidebar">
+            <div class="sidebar-box">
+                <h4>Technologies</h4>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Turtle</span>
+                </div>
+            </div>
+            <div class="sidebar-box">
+                <h4>Téléchargement global</h4>
+                <div class="sidebar-links">
+                    <a href="Projets/Turtel.zip" download class="sidebar-btn secondary">
+                        Tout télécharger (.zip)
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload-icon lucide-upload"><path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>&copy; Nathan Bergeon. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>

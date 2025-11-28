@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Spiner - Projet Turtle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    </head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">Nathan Bergeon</div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="chronologie.html">Chronologie</a></li>
+                    <li><a href="projets.html" class="active-link">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-btn" onclick="toggleMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Accueil</a>
+            <a href="chronologie.html">Chronologie</a>
+            <a href="projets.html">Projets</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </header>
+
+    <section class="project-hero" style="background-image: url('./images/Turtel/Hand_Spiner'); height: 40vh; min-height: 300px;">
+        <div class="project-hero-overlay"></div>
+        <div class="container project-hero-content">
+            <a href="turtel.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Retour à la collection
+            </a>
+            <h1>Hand Spiner</h1>
+        </div>
+    </section>
+
+    <div class="container project-layout">
+        <main class="project-main-content">
+            
+            <div class="project-section">
+                <h2 class="section-title">Explication</h2>
+                <p>
+                    Ce programme utilise </p>
+            </div>
+            
+            <div class="project-section">
+                <h2 class="section-title">Simulateur Interactif</h2>
+                <p>
+                    Lancer le simulateur avec le bouton run
+                </p>
+                
+                <iframe 
+                    src="https://trinket.io/embed/python/312eebf24066?outputOnly=true"
+                    width="50%" 
+                    height="300" 
+                    frameborder="0" 
+                    marginwidth="0" 
+                    marginheight="0" 
+                    allowfullscreen
+                    style="border-radius: 8px; margin-top: 1rem; border: 1px solid #333;">
+                </iframe>
+                
+            </div>
+            <div class="project-section">
+                <h2 class="section-title">Le Code Python</h2>
+                <pre class="code-block">
+from turtle import *
+
+speed('slowest')
+shape("turtle")
+
+for i in range(3):
+    circle(45,180) #RAYON , ARC DE CERCLE
+    circle(-45,180)
+    left(120)
+
+done()
+                </pre>
+            </div>
+        </main>
+
+        <aside class="project-sidebar">
+            <div class="sidebar-box">
+                <h4>Fichier</h4>
+                <div class="sidebar-links">
+                    <a href="Projets/Turtel/Hand spiner.py" download class="sidebar-btn">
+                        Télécharger le .py
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; Nathan Bergeon. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+
+</body>
