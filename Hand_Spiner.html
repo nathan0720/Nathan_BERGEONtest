@@ -78,8 +78,10 @@
                 <pre class="code-block">
 from turtle import *
 
-speed('slowest')
-shape("turtle")
+#pour se bien place au centre
+penup()
+goto(100, -100)
+pendown()
 
 for i in range(3):
     circle(45,180) #RAYON , ARC DE CERCLE
