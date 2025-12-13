@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maison - Projet Turtle</title>
+    <title>Spirale - Projet Turtle</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 Retour à la collection
             </a>
-            <h1>Maison</h1>
+            <h1>Spirale</h1>
         </div>
     </section>
 
@@ -52,7 +52,7 @@
             <div class="project-section">
                 <h2 class="section-title">Explication</h2>
                 <p>
-                    Maîtrise des commandes de base de Turtle (forward, right, left). Compréhension du séquencement d'instructions pour construire des formes géométriques de base.
+                    Mise en œuvre de la boucle conditionnelle (while). Introduction à la notion de variable d'itération (x) pour faire évoluer une propriété (la longueur) du dessin, créant ainsi une forme complexe.
                 </p>
             </div>
             
@@ -63,7 +63,7 @@
                 </p>
                 
                 <iframe 
-                    src="https://trinket.io/embed/python/154cadc3fa92?outputOnly=true"
+                    src="https://trinket.io/embed/python/9559e1401870?outputOnly=true"
                     width="100%" 
                     height="500" 
                     frameborder="0" 
@@ -75,6 +75,8 @@
                 
             </div>
             <div class="project-section">
+                <h2 class="section-title">Le Code Python</h2>
+            <div class="project-section">
                 <div class="code-header">
                     <h2 class="section-title">Le Code Python</h2>
                     <button id="copyCodeButton" class="copy-btn">
@@ -85,29 +87,23 @@
                 <pre id="pythonCode" class="code-block">
 from turtle import *
 
-right(90)
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-right(120)
-forward(100)
-right(120)
-forward(100)
+x = 0
+
+while x < 300:
+    fd(x)
+    left(60)
+    x += 5
 
 done()
-    </pre>
-</div>
+                </pre>
+            </div>
         </main>
 
         <aside class="project-sidebar">
             <div class="sidebar-box">
                 <h4>Fichier</h4>
                 <div class="sidebar-links">
-                    <a href="Projets/Turtel/maison.py" download class="sidebar-btn">
+                    <a href="Projets/Turtel/spirale.py" download class="sidebar-btn">
                         Télécharger le .py
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     </a>
@@ -160,4 +156,3 @@ done()
 </script>
 
 </body>
-</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maison - Projet Turtle</title>
+    <title>Oeuf - Projet Turtle</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 Retour à la collection
             </a>
-            <h1>Maison</h1>
+            <h1>Oeuf</h1>
         </div>
     </section>
 
@@ -52,7 +52,7 @@
             <div class="project-section">
                 <h2 class="section-title">Explication</h2>
                 <p>
-                    Maîtrise des commandes de base de Turtle (forward, right, left). Compréhension du séquencement d'instructions pour construire des formes géométriques de base.
+                    Application de concepts mathématiques et géométriques avancés, notamment l'utilisation du Théorème de Pythagore pour calculer le rayon précis de l'arc supérieur. Utilisation de la fonction write() pour étiqueter les points de construction.
                 </p>
             </div>
             
@@ -63,7 +63,7 @@
                 </p>
                 
                 <iframe 
-                    src="https://trinket.io/embed/python/154cadc3fa92?outputOnly=true"
+                    src="https://trinket.io/embed/python/65df258ebcc1?outputOnly=true"
                     width="100%" 
                     height="500" 
                     frameborder="0" 
@@ -85,29 +85,38 @@
                 <pre id="pythonCode" class="code-block">
 from turtle import *
 
+#mon simulateur python ne prend pas en charge "numinput" donc j'ai code le rayon en dure.
+#r = int(numinput("Choisis", "Taille de l'oeuf (moyen 100)?")) 
+r = 100 #valeur que l'on veut
+
+#pour bien se place au centre
+penup()
+goto(-r, -r/2)
+pendown()
+
+
 right(90)
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-right(120)
-forward(100)
-right(120)
-forward(100)
+write('A')
+circle(r, 180)
+write('B')
+circle(r*2,45)
+write('E')
+# on utilise le théorème de Pythagore
+circle(r*2-(r**2+r**2)**0.5,90)
+write('D')
+circle(r*2,45)
+write('A')
 
 done()
-    </pre>
-</div>
+                </pre>
+            </div>
         </main>
 
         <aside class="project-sidebar">
             <div class="sidebar-box">
                 <h4>Fichier</h4>
                 <div class="sidebar-links">
-                    <a href="Projets/Turtel/maison.py" download class="sidebar-btn">
+                    <a href="Projets/Turtel/Oeuf.py" download class="sidebar-btn">
                         Télécharger le .py
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     </a>
