@@ -218,13 +218,8 @@ header {
 }
 
 .btn-primary:hover {
-<<<<<<< HEAD
     background-color: #e5e5e5;
     border-color: #e5e5e5;
-=======
-    background-color: #c8c8c8;
-    border-color: #c8c8c8;
->>>>>>> 0403b27e9f8f925173fc036ca2160b8ace065cd6
 }
 
 .btn-secondary {
@@ -773,17 +768,13 @@ header {
     color: #ccc;
 }
 
-<<<<<<< HEAD
 /* Bloc de code (Sucette.html) */
-=======
->>>>>>> 0403b27e9f8f925173fc036ca2160b8ace065cd6
 .code-block {
     background-color: #1e1e1e; 
     color: #d4d4d4; 
     padding: 20px;
     border-radius: 8px;
     font-family: 'Courier New', monospace;
-<<<<<<< HEAD
     
     /* 1. Force le bloc à ne jamais dépasser la largeur de son parent */
     max-width: 100%; 
@@ -791,8 +782,6 @@ header {
     /* 2. Ajoute une barre de défilement horizontale si le contenu déborde */
     overflow-x: auto; 
     
-=======
->>>>>>> 0403b27e9f8f925173fc036ca2160b8ace065cd6
     border: 1px solid #333;
     margin-top: 1rem;
     font-size: 0.9rem;
@@ -1047,9 +1036,6 @@ footer {
         padding-right: 0;
         justify-content: center;
         width: 100%;
-<<<<<<< HEAD
-=======
-        overflow: hidden;
     }
     .glow-effect {
         width: 300px;  /* Réduit de 500px à 300px */
@@ -1057,7 +1043,6 @@ footer {
         left: 50%;     /* Centre la lueur */
         top: 50%;
         transform: translate(-50%, -50%); /* Assure le centrage parfait */
->>>>>>> 0403b27e9f8f925173fc036ca2160b8ace065cd6
     }
     .image-card {
         width: 100%;
@@ -1084,7 +1069,36 @@ footer {
         right: auto;
     }
 
-    /* Layout Projets Détail */
+    /* Désactiver l'effet de survol (hover) des éléments de la timeline sur mobile */
+    .timeline-content {
+        transform: none !important; /* Annule le translateY(-5px) au survol/tap */
+        border-color: #333 !important; /* Annule la bordure accent-cyan au survol/tap */
+    }
+
+.timeline-content:hover {
+        transform: none;
+        border-color: #333; /* Rétablir la couleur de bordure par défaut */
+    }
+    
+    .timeline-content {
+        transform: none !important;
+        border-color: #333 !important;
+    }
+
+    .image-card:hover {
+        transform: none;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--text-main);
+        border-color: var(--text-main);
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.15);
+    }
+
     .project-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1110,7 +1124,6 @@ footer {
         width: 100%;
         padding: 1.5rem;
     }
-<<<<<<< HEAD
 }
 
 /* --- NOUVEAU STYLE POUR BOUTON COPIER ET LAYOUT DE CODE --- */
@@ -1160,6 +1173,4 @@ footer {
         align-items: flex-start;
         gap: 10px;
     }
-=======
->>>>>>> 0403b27e9f8f925173fc036ca2160b8ace065cd6
 }
