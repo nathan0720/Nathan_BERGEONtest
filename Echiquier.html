@@ -85,41 +85,26 @@
                 <pre id="pythonCode" class="code-block">
 from turtle import *
 #centre l'échiquier
-COTE_CASE = 20
-POSITION_DEPART = -80
-ANGLE_DROIT = 90
-NB_CASES = 8
-
-# Configuration initiale
-speed(0)  # Accélère le tracé
 penup()
-goto(POSITION_DEPART, POSITION_DEPART)
+goto(-80, -80)
 pendown()
 
-for k in range(NB_CASES): # Boucle pour les colonnes (axe Y)
-    for j in range(NB_CASES): # Boucle pour les rangées (axe X)
-        
-        # Définition de la couleur selon la parité de la case
-        if (k + j) % 2 == 0:
-            fillcolor("black")
-        else:
-            fillcolor("white")
-            
+cote = 20
+for k in range(8): # colonne
+    for j in range(8): # rangee
         begin_fill()
-        # Dessin d'une case carrée
-        for i in range(4):
-            forward(COTE_CASE)
-            left(ANGLE_DROIT)
+        for i in range(4): # case
+            if (k+j)%2 == 0:
+                fillcolor("black")
+            else:
+                fillcolor("white")
+            fd(cote)
+            left(90)
         end_fill()
-        
-        # Avancer pour la prochaine case de la rangée
-        forward(COTE_CASE)
-        
-    # Retour au début de la ligne et passage à la ligne supérieure
-    penup()
-    goto(POSITION_DEPART, ycor() + COTE_CASE)
-    pendown()
-
+        fd(cote)
+    bk((j+1)*cote) # revient au x de départ
+    # revient au x de départ
+    goto(xcor(), ycor()+cote)
 done()
                 </pre>
             </div>
