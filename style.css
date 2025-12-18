@@ -1139,11 +1139,20 @@ footer {
         font-size: 0.75rem !important;
         padding: 15px;
     }
+    
 }
 
 @media (max-width: 450px) {
     .code-block {
         font-size: 0.50rem !important;
         padding: 15px;
+    }
+    .simulateur-iframe {
+        display: none;
+    }
+
+    /* Optionnel : Masquer aussi le texte "Lancer le simulateur..." sur mobile */
+    .texte-simulateur {
+        display: none;
     }
 }
