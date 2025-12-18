@@ -14,7 +14,7 @@
 
     <header>
         <div class="header-container">
-        <div class="logo"><a href="index.html">Nathan BERGEON</a></div>
+            <div class="logo">Nathan Bergeon</div>
             <nav class="desktop-nav">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
@@ -43,6 +43,10 @@
                 Retour à la collection
             </a>
             <h1>Octogone</h1>
+            <div class="badge">
+                <span class="dot"></span>
+                Lycéen
+            </div>
         </div>
     </section>
 
@@ -52,8 +56,7 @@
             <div class="project-section">
                 <h2 class="section-title">Explication</h2>
                 <p>
-                    Maîtrise avancée des boucles triples imbriquées (for...for...for) pour construire un motif très détaillé. Démonstration de la capacité à concevoir des motifs complexes en décomposant le dessin en petits sous-éléments (le triangle).
-                </p>
+                    Ce programme utilise </p>
             </div>
             
             <div class="project-section">
@@ -63,7 +66,7 @@
                 </p>
                 
                 <iframe 
-                    src="https://trinket.io/embed/python/967fb6cd53af?outputOnly=true"
+                    src="https://trinket.io/embed/python/154cadc3fa92?outputOnly=true"
                     width="100%" 
                     height="300" 
                     frameborder="0" 
@@ -75,20 +78,9 @@
                 
             </div>
             <div class="project-section">
-                <div class="code-header">
-                    <h2 class="section-title">Le Code Python</h2>
-                    <button id="copyCodeButton" class="copy-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                        Copier
-                    </button>
-                </div>
-                <pre id="pythonCode" class="code-block">
+                <h2 class="section-title">Le Code Python</h2>
+                <pre class="code-block">
 from turtle import *
-
-#pour se bien place au centre
-penup()
-goto(100, -100)
-pendown()
 
 for k in range(6):
     for j in range(3):
@@ -99,7 +91,6 @@ for k in range(6):
          left(120)
     fd(100)
     left(60)
-
 done()
                 </pre>
             </div>
@@ -109,7 +100,7 @@ done()
             <div class="sidebar-box">
                 <h4>Fichier</h4>
                 <div class="sidebar-links">
-                    <a href="Projets/Turtel/octogone.py" download class="sidebar-btn">
+                    <a href="Projets/Turtel/Octogone.py" download class="sidebar-btn">
                         Télécharger le .py
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     </a>
@@ -122,7 +113,12 @@ done()
         <p>&copy; Nathan Bergeon. Tous droits réservés.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
 
 </body>
 </html>
