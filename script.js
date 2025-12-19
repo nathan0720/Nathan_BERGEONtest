@@ -45,10 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDeleting = false;
     let typingSpeed = 100;
     
-    let animationStarted = false; // Pour savoir si l'animation tourne
-    let animationTimeout; // Pour pouvoir stopper le setTimeout
+    let animationStarted = false;
+    let animationTimeout;
 
-    // Animation du curseur avec GSAP
     gsap.to(cursor, {
         opacity: 0,
         ease: "power2.inOut",
