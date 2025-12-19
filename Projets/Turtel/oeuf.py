@@ -1,8 +1,9 @@
 ﻿from turtle import *
 
-r = int(numinput("Choisis", "Taille de l'oeuf (moyen 100)?"))
+r = int(input("Choisis la taille de l'oeuf (moyen 100)?"))
 
 #pour bien se place au centre
+
 penup()
 goto(-r, -r/2)
 pendown()
