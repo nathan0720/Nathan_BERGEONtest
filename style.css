@@ -248,7 +248,7 @@ header {
 
 .hero-content {
     flex: 1;
-    max-width: 600px; /* */
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -288,16 +288,12 @@ header {
 
 /* --- Styles pour l'animation Typewriter (Stabilité) --- */
 
-/* Le conteneur qui empêche le texte du bas de sauter */
 .fixed-height-container {
-    display: block;        /* Force le passage sous "Créer mon avenir" */
-    
-    /* Calcul : line-height 1.05 * 2 lignes = 2.1em. On met 2.3em par sécurité. */
+    display: block;
     min-height: 2.3em;     
-    
-    margin-top: 0.5rem;    /* Un peu d'espace avec le titre du dessus */
-    white-space: normal;   /* Autorise le retour à la ligne */
-    overflow: visible;     /* S'assure que rien n'est coupé */
+    margin-top: 0.5rem;
+    white-space: normal;
+    overflow: visible;
 }
 
 .gradient-text {
@@ -317,13 +313,12 @@ header {
 /* --- Fin styles Typewriter --- */
 
 .description {
-    color: var(--text-muted); 
+    color: var(--text-muted);
     font-size: 1.15rem;
-    margin-bottom: 2rem;      
+    margin-bottom: 2rem;
     max-width: 520px;
     line-height: 1.7;
     text-align: left;
-    margin-left: 0;
 }
 
 .author-name {
@@ -1072,13 +1067,16 @@ footer {
     .hero {
         flex-direction: column-reverse;
         text-align: center;
-        padding-top: 1rem;
         gap: 2rem;
-        min-height: auto;
     }
     .hero-content {
         align-items: center;
         text-align: center;
+    }
+    .hero-content h1 {
+        text-align: center;
+        font-size: 2.8rem;
+        width: 100%;
     }
     .hero h1 { 
         font-size: 2.8rem;
@@ -1095,9 +1093,9 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
-
     .cta-group {
-        justify-content: center;
+        justify-content: center; /* Centre les boutons */
+        width: 100%;
     }
     .hero-image {
         padding-right: 0;

@@ -1,5 +1,4 @@
 // pour le menu deroulant page Nathan BERGEON
-
 function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     menu.classList.toggle('open');
@@ -7,30 +6,21 @@ function toggleMobileMenu() {
 
 // Logique du bouton copier (multiples boutons)
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. On sélectionne TOUS les boutons qui ont la classe .copy-btn
     const buttons = document.querySelectorAll('.copy-btn');
 
-    // 2. On boucle sur chaque bouton pour leur ajouter l'événement
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            
-            // On récupère l'ID du code cible via l'attribut data-target du bouton
             const targetId = button.getAttribute('data-target');
             const codeBlock = document.getElementById(targetId);
 
             if (codeBlock) {
-                // Récupérer le texte
                 const codeText = codeBlock.textContent.trim();
-
-                // Copier dans le presse-papier
                 navigator.clipboard.writeText(codeText)
                     .then(() => {
-                        // Animation de succès spécifique au bouton cliqué
                         const originalHTML = button.innerHTML;
                         button.classList.add('copied');
                         button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Copié !';
                         
-                        // Réinitialisation après 2 secondes
                         setTimeout(() => {
                             button.classList.remove('copied');
                             button.innerHTML = originalHTML;
@@ -38,23 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                     .catch(err => {
                         console.error('Erreur copie: ', err);
-                        alert("La copie a échoué. Votre navigateur ne supporte peut-être pas cette fonctionnalité.");
                     });
             }
         });
     });
 });
 
-
+// --- Logique de la machine à écrire réactive ---
 document.addEventListener('DOMContentLoaded', () => {
     const textElement = document.getElementById('typewriter-dynamic');
     const cursor = document.getElementById('cursor');
     
-    const phrases = ["une ligne à la fois."]; // Tu peux mettre plusieurs phrases
+    const phrases = ["une ligne à la fois."];
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     let typingSpeed = 100;
+    
+    let animationStarted = false; // Pour savoir si l'animation tourne
+    let animationTimeout; // Pour pouvoir stopper le setTimeout
 
     // Animation du curseur avec GSAP
     gsap.to(cursor, {
@@ -66,33 +58,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function type() {
+        // Sécurité : si on passe sous 950px pendant que l'animation tourne, on stoppe tout
+        if (window.innerWidth <= 950) {
+            animationStarted = false;
+            return;
+        }
+
         const currentPhrase = phrases[phraseIndex];
 
         if (isDeleting) {
-            // On efface
             textElement.textContent = currentPhrase.substring(0, charIndex - 1);
             charIndex--;
-            typingSpeed = 50; // Plus rapide quand on efface
+            typingSpeed = 50;
         } else {
-            // On écrit
             textElement.textContent = currentPhrase.substring(0, charIndex + 1);
             charIndex++;
             typingSpeed = 100;
         }
 
-        // Gestion des pauses et changements de phrase
         if (!isDeleting && charIndex === currentPhrase.length) {
             isDeleting = true;
-            typingSpeed = 2000; // Pause à la fin de la phrase
+            typingSpeed = 2000;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 500; // Pause avant de recommencer
+            typingSpeed = 500;
         }
 
-        setTimeout(type, typingSpeed);
+        animationTimeout = setTimeout(type, typingSpeed);
     }
 
-    // Lancer l'animation
-    setTimeout(type, 1000); 
+    // Fonction qui décide quoi faire selon la taille de l'écran
+    function checkScreenAndAnimate() {
+        if (window.innerWidth <= 950) {
+            // MODE MOBILE : On coupe l'animation
+            clearTimeout(animationTimeout);
+            textElement.textContent = phrases[0]; // On affiche le texte fixe
+            cursor.style.display = 'none'; // On cache le curseur
+            animationStarted = false;
+        } else {
+            // MODE PC : On lance l'animation si elle n'est pas déjà lancée
+            cursor.style.display = 'inline-block';
+            if (!animationStarted) {
+                charIndex = 0;
+                phraseIndex = 0;
+                isDeleting = false;
+                animationStarted = true;
+                type();
+            }
+        }
+    }
+
+    // Écouteur de redimensionnement de fenêtre
+    window.addEventListener('resize', checkScreenAndAnimate);
+
+    // Lancement au démarrage
+    checkScreenAndAnimate();
 });
