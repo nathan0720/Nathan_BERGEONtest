@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('cursor');
     
     if (!textElement || !cursor) {
-        return;
+        return; 
     }
 
     const phrases = ["une ligne à la fois."];
