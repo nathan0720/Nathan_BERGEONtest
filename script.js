@@ -4,36 +4,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu = document.getElementById('mobileMenu');
     const header = document.querySelector('header');
 
-    // Fonction pour fermer proprement
     const closeMenu = () => {
         menu.classList.remove('open');
         header.classList.remove('nav-active');
         menuCheckbox.checked = false;
-        document.body.style.overflow = ''; // Réactive le scroll
+        document.body.style.overflow = '';
     };
 
     const openMenu = () => {
         menu.classList.add('open');
         header.classList.add('nav-active');
-        document.body.style.overflow = 'hidden'; // Bloque le scroll
+        document.body.style.overflow = 'hidden';
     };
 
     if (menuCheckbox && menu) {
-        // Changement via le bouton
         menuCheckbox.addEventListener('change', () => {
             if (menuCheckbox.checked) openMenu();
             else closeMenu();
         });
 
-        // Fermer si on clique sur le fond du menu (en dehors des liens)
         menu.addEventListener('click', (event) => {
             // Si l'élément cliqué n'est pas un lien <a>
             if (event.target.tagName !== 'A') {
                 closeMenu();
             }
         });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeMenu(); 
+            }
+        });
         
-        // Fermer quand on clique sur un lien (pour changer de page)
         menu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => closeMenu());
         });

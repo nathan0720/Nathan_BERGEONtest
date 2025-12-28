@@ -15,12 +15,12 @@
 
     <header>
         <div class="header-container">
-        <div class="logo"><a href="index.html">Nathan BERGEON</a></div>
+            <div class="logo"><a href="index.html">Nathan BERGEON</a></div>
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="index.html" >Accueil</a></li>
+                    <li><a href="index.html">Accueil</a></li>
                     <li><a href="chronologie.html">Chronologie</a></li>
-                    <li><a href="projets.html"class="active-link">Projets</a></li>
+                    <li><a href="projets.html" class="active-link">Projets</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -33,13 +33,12 @@
                 </svg>
             </label>
 
-        </div>
-        
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html">Accueil</a>
-            <a href="chronologie.html">Chronologie</a>
-            <a href="projets.html">Projets</a>
-            <a href="contact.html">Contact</a>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html">Accueil</a>
+                <a href="chronologie.html">Chronologie</a>
+                <a href="projets.html">Projets</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </header>
 
@@ -64,7 +63,7 @@
             <div class="project-section">
                 <h2 class="section-title">Explication</h2>
                 <p>
-                    Ce programme utilise </p>
+                    Mise en œuvre d'une structure itérative (boucle <code>for</code>) pour automatiser le tracé des huit segments identiques de la figure. L'algorithme applique une rotation systématique de 45 degrés (calculée via la formule de l'angle externe d'un polygone régulier : 360 / 6) après chaque translation. Cette méthode garantit une fermeture parfaite de la forme géométrique et une symétrie axiale complète. </p>
             </div>
             
             <div class="project-section">
@@ -135,12 +134,7 @@ done()
         <p>&copy; Nathan Bergeon. Tous droits réservés.</p>
     </footer>
 
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('open');
-        }
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>
