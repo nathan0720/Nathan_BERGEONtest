@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projets Python Micro:bit - Nathan Bergeon</title>
+    <link rel="icon" type="image/gif" href="./images/icon_page.gif" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,13 +19,21 @@
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="chronologie.html">Chronologie</a></li>
-                    <li><a href="projets.html" class="active-link">Projets</a></li> <li><a href="contact.html">Contact</a></li>
+                    <li><a href="projets.html"class="active-link">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            <div class="hamburger-btn" onclick="toggleMobileMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </div>
+
+            <label class="hamburger" id="hamburgerLabel">
+                <input type="checkbox" id="menuCheckbox" />
+                <svg viewBox="0 0 32 32">
+                    <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                    <path class="line" d="M7 16 27 16"></path>
+                </svg>
+            </label>
+
         </div>
+        
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html">Accueil</a>
             <a href="chronologie.html">Chronologie</a>
@@ -58,7 +67,7 @@
             <div class="project-section">
                 <h2 class="section-title">À propos du projet</h2>
                 <p>
-                    Lors de ma terminale au lycée, j’ai eu l’opportunité de réaliser un projet en NSI autour de la robotique en utilisant la carte Micro:bit et le robot Maqueen. Ce projet m’a permis de découvrir l’électronique, la programmation et la logique de contrôle des robots de manière ludique et pédagogique. L’objectif était de programmer des robots pour qu’ils effectuent des tâches simples mais concrètes, en utilisant différents capteurs intégrés.
+                    Lors de ma terminale au lycée, j’ai eu l’opportunité de réaliser un projet en NSI autour de la robotique en utilisant la carte Micro:bit et le robot Maqueen. Ce projet m’a permis de découvrir l’électronique, la programmation et la logique de contrôle des robots de manière ludique et pédagogique. L’objectif est de programmer des robots pour qu’ils effectuent des tâches simples mais concrètes, en utilisant différents capteurs intégrés.
                 </p>
             </div>
 
@@ -67,13 +76,12 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     Défis Techniques
                 </h3>
-                <p>Projet 1 - Le robot suit une ligne noire</p>
-                <p>Projet 2 - Le robot détecte les obstacles</p>
-                <p>Projet 3 - Le robot se déplace de façon autonome dans la classe</p>
+                <p><a href="#projet-1" class="challenge-link">Projet 1 - Le robot suit une ligne noire</a></p>
+                <p><a href="#projet-2" class="challenge-link">Projet 2 - Le robot détecte les obstacles</a></p>
+                <p><a href="#projet-3" class="challenge-link">Projet 3 - Le robot se déplace de façon autonome dans la classe</a></p>
             </div>
-            <br>
 
-            <div class="project-section">
+            <div class="project-section" id="projet-1">
                 <div class="code-header">
                     <h2 class="section-title">Projet 1 - Le robot suit une ligne noire</h2>
                     <button class="copy-btn" data-target="code-1">
@@ -157,7 +165,7 @@ while True:
             </div>
             </div>
 
-            <div class="project-section">
+            <div class="project-section" id="projet-2">
                 <div class="code-header">
                     <h2 class="section-title">Projet 2 - Le robot détecte les obstacles</h2>
                     <button class="copy-btn" data-target="code-2">
@@ -225,7 +233,7 @@ while True:
                 </pre>
             </div>
 
-            <div class="project-section">
+            <div class="project-section" id="projet-3">
                 <div class="code-header">
                     <h2 class="section-title">Projet 3 - Le robot se déplace de façon autonome</h2>
                     <button class="copy-btn" data-target="code-3-robot">
@@ -433,7 +441,8 @@ while True:
 
 
             <div class="project-section">
-                <h2 class="section-title">Documentations</h2>
+                <h2 class="section-title">Documentation
+                </h2>
                 <div class="features-grid">
                     
                     <div class="feature-item">
@@ -464,7 +473,7 @@ while True:
 
                     <div class="feature-item">
                         <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench-icon lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg></div>
-                        <span>Capteur de mouvement secouement (dérivé de l’accéléromètre)</span>
+                        <span>Capteur de mouvement (dérivé de l’accéléromètre)</span>
                     </div>
 
                     <div class="feature-item">

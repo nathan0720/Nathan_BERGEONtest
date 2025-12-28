@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathan Bergeon - Projets</title>
+    <link rel="icon" type="image/gif" href="./images/icon_page.gif" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +17,23 @@
         <div class="logo"><a href="index.html">Nathan BERGEON</a></div>
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html" >Accueil</a></li>
                     <li><a href="chronologie.html">Chronologie</a></li>
-                    <li><a href="projets.html" class="active-link">Projets</a></li>
+                    <li><a href="projets.html"class="active-link">Projets</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            <div class="hamburger-btn" onclick="toggleMobileMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </div>
+
+            <label class="hamburger" id="hamburgerLabel">
+                <input type="checkbox" id="menuCheckbox" />
+                <svg viewBox="0 0 32 32">
+                    <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                    <path class="line" d="M7 16 27 16"></path>
+                </svg>
+            </label>
+
         </div>
+        
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html">Accueil</a>
             <a href="chronologie.html">Chronologie</a>
@@ -57,7 +65,7 @@
             <div class="project-card" style="--bg-url: url('./images/logo_turtel.jpg');">
                 <span class="card-type">GRAPHIQUE</span>
                 <h3>Turtel</h3>
-                <p>Un projet créatif et super visuel, super pour commencer python.</p>
+                <p>Un projet créatif et super visuel, pratique pour commencer avec python.</p>
                 <div class="tag-group">
                     <span class="tag">#Python</span>
                     <span class="tag">#Turtel</span>
@@ -73,6 +81,20 @@
                 <p>Un projet concret et super visuel</p>
                 <div class="tag-group">
                     <span class="tag">#Filius</span>
+                    <span class="tag">#Schématisation</span>
+                </div>
+                <div class="card-actions">
+                    <a href="filius.html" class="action-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Voir le projet</a>
+                </div>
+            </div>
+
+            <div class="project-card" style="--bg-url: url('./images/logo_figma.jpg');">
+                <span class="card-type">DISIGNE</span>
+                <h3>Figma</h3>
+                <p>Un projet pour poser les idées jusqu'a la maquette</p>
+                <div class="tag-group">
+                    <span class="tag">#Figma</span>
+                    <span class="tag">#Créativité</span>
                 </div>
                 <div class="card-actions">
                     <a href="creation_en_cour.html" class="action-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Voir le projet</a>
@@ -82,7 +104,7 @@
         </div>
         
     </div>
-    
+        
     <footer>
         <p>&copy; Nathan Bergeon. Tous droits réservés.</p>
     </footer>

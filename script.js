@@ -1,8 +1,44 @@
-// pour le menu deroulant page Nathan BERGEON
-function toggleMobileMenu() {
+// GESTION DU MENU MOBILE (FLUIDE & SANS TRAIT)
+document.addEventListener('DOMContentLoaded', () => {
+    const menuCheckbox = document.getElementById('menuCheckbox');
     const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
-}
+    const header = document.querySelector('header');
+
+    // Fonction pour fermer proprement
+    const closeMenu = () => {
+        menu.classList.remove('open');
+        header.classList.remove('nav-active');
+        menuCheckbox.checked = false;
+        document.body.style.overflow = ''; // Réactive le scroll
+    };
+
+    const openMenu = () => {
+        menu.classList.add('open');
+        header.classList.add('nav-active');
+        document.body.style.overflow = 'hidden'; // Bloque le scroll
+    };
+
+    if (menuCheckbox && menu) {
+        // Changement via le bouton
+        menuCheckbox.addEventListener('change', () => {
+            if (menuCheckbox.checked) openMenu();
+            else closeMenu();
+        });
+
+        // Fermer si on clique sur le fond du menu (en dehors des liens)
+        menu.addEventListener('click', (event) => {
+            // Si l'élément cliqué n'est pas un lien <a>
+            if (event.target.tagName !== 'A') {
+                closeMenu();
+            }
+        });
+        
+        // Fermer quand on clique sur un lien (pour changer de page)
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => closeMenu());
+        });
+    }
+});
 
 // Logique du bouton copier (multiples boutons)
 document.addEventListener('DOMContentLoaded', () => {
