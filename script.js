@@ -42,34 +42,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Logique du bouton copier (multiples boutons)
+// Logique globale pour les boutons de copie (Code et Email)
 document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.copy-btn');
-
-    buttons.forEach(button => {
+    
+    // --- CAS 1 : Boutons de code classiques (ex: maison.html) ---
+    const codeButtons = document.querySelectorAll('.copy-btn');
+    codeButtons.forEach(button => {
         button.addEventListener('click', () => {
             const targetId = button.getAttribute('data-target');
             const codeBlock = document.getElementById(targetId);
 
             if (codeBlock) {
                 const codeText = codeBlock.textContent.trim();
-                navigator.clipboard.writeText(codeText)
-                    .then(() => {
-                        const originalHTML = button.innerHTML;
-                        button.classList.add('copied');
-                        button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Copié !';
-                        
-                        setTimeout(() => {
-                            button.classList.remove('copied');
-                            button.innerHTML = originalHTML;
-                        }, 2000);
-                    })
-                    .catch(err => {
-                        console.error('Erreur copie: ', err);
-                    });
+                copyToClipboard(codeText, button);
             }
         });
     });
+
+    // --- CAS 2 : Bouton Email spécifique ---
+    const emailBtn = document.getElementById('copyEmail');
+    const emailMsg = document.getElementById('copyMessage');
+    const myEmail = "nathan07.bergeon@gmail.com";
+
+    if (emailBtn) {
+        emailBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(myEmail).then(() => {
+                emailMsg.classList.add('show');
+                setTimeout(() => emailMsg.classList.remove('show'), 2000);
+            });
+        });
+    }
+
+    // --- CAS 3 : Bouton Partager spécifique ---
+    const shareBtn = document.getElementById('shareBtn');
+    const shareMsg = document.getElementById('shareMessage');
+
+    if (shareBtn && shareMsg) {
+        shareBtn.addEventListener('click', () => {
+            const siteUrl = window.location.href;
+
+            navigator.clipboard.writeText(siteUrl).then(() => {
+                shareMsg.classList.add('show');
+                setTimeout(() => {
+                    shareMsg.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                console.error('Erreur lors de la copie du lien : ', err);
+            });
+        });
+    }
+
+    // Fonction utilitaire pour l'animation des boutons de code
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(() => {
+            const originalHTML = button.innerHTML;
+            button.classList.add('copied');
+            button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Copié !';
+            
+            setTimeout(() => {
+                button.classList.remove('copied');
+                button.innerHTML = originalHTML;
+            }, 2000);
+        }).catch(err => console.error('Erreur copie: ', err));
+    }
 });
 
 //  Logique de la machine à écrire 
