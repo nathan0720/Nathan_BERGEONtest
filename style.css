@@ -462,38 +462,34 @@ header.nav-active {
 .social-button svg {
     width: 20px;
     height: 20px;
-    /* On force les icônes en sombre pour qu'elles ressortent sur le bleu/cyan */
     fill: #1a1a1a;
     stroke: #1a1a1a;
     transition: 0.3s;
 }
 
-/* --- Application du dégradé entre les 4 bulles --- */
 
-/* 1. GitHub (Bleu pur) */
-.github { background-color: #60a5fa; } /* var(--accent-blue) */
+/* 1. GitHub  */
+.github { background-color: #60a5fa; } 
 .github svg { fill: #1a1a1a; stroke: none; }
 
-/* 2. LinkedIn (Bleu-Cyan intermédiaire) */
+/* 2. LinkedIn */
 .linkedin { background-color: #4bc0f4; }
 .linkedin svg { fill: #1a1a1a; stroke: none; }
 
-/* 3. Mail (Cyan-Bleu intermédiaire) */
+/* 3. Mail */
 .mail { background-color: #37dbf1; }
 .mail svg { fill: none; stroke: #1a1a1a; stroke-width: 2; }
 
-/* 4. Partage (Cyan pur) */
-.share { background-color: #22d3ee; } /* var(--accent-cyan) */
+/* 4. Partage */
+.share { background-color: #22d3ee; }
 .share svg { fill: none; stroke: #1a1a1a; stroke-width: 2; }
 
-/* Effet au survol unifié */
 .social-button:hover {
     transform: translateY(-5px);
-    filter: brightness(1.1); /* Éclaircit légèrement la bulle */
+    filter: brightness(1.1); 
     box-shadow: 0px 5px 15px rgba(96, 165, 250, 0.3);
 }
 
-/* Tooltip pour la copie */
 .copy-container { position: relative; display: inline-block; }
 .copy-tooltip {
     position: absolute;
