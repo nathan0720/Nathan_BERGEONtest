@@ -117,6 +117,13 @@ header.nav-active {
     color: var(--accent-blue);
 }
 
+/* --- Groupe Navigation & Actions (Ajouté) --- */
+.nav-action-group {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Espace entre le menu et l'icône */
+}
+
 .desktop-nav ul {
     display: flex;
     gap: 2.5rem;
@@ -132,6 +139,40 @@ header.nav-active {
 .desktop-nav a:hover, .desktop-nav a.active-link {
     color: var(--text-main);
     opacity: 1;
+}
+
+/* --- Bouton Profil (Ajouté) --- */
+.profile-btn {
+    background: transparent;
+    border: 2px solid transparent; 
+    color: var(--accent-blue);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-btn:hover {
+    background: rgba(96, 165, 250, 0.1);
+    transform: scale(1.1);
+}
+
+.profile-btn svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* --- Carte Profil Modal (Ajouté) --- */
+.profile-card.selected {
+    border-color: var(--accent-blue);
+    background: rgba(96, 165, 250, 0.15);
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
 }
 
 /* === MENU MOBILE === */
@@ -177,9 +218,10 @@ header.nav-active {
 
 .hamburger {
     cursor: pointer;
-    display: none; /* Masqué sur desktop */
+    display: none; /* Caché sur desktop */
     z-index: 1002;
-    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    user-select: none;
 }
 
 .hamburger input {
@@ -187,7 +229,7 @@ header.nav-active {
 }
 
 .hamburger svg {
-    height: 3em;
+    height: 3em; /* Taille précise pour l'animation */
     transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -202,7 +244,7 @@ header.nav-active {
 }
 
 .line-top-bottom {
-    stroke-dasharray: 12 63;
+    stroke-dasharray: 12 63; 
 }
 
 .hamburger input:checked + svg {
@@ -1252,6 +1294,166 @@ iframe {
     .spinner div:nth-of-type(6) { transform: translateZ(40px); }
 }
 
+.nav-action-group {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* --- Bouton Profil (Ajouté) --- */
+.profile-btn {
+    background: transparent;
+    border: 2px solid transparent; 
+    color: var(--accent-blue);
+    cursor: pointer;
+    padding: 6px; /* Un peu plus d'espace */
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-btn:hover {
+    background: rgba(96, 165, 250, 0.2);
+    transform: scale(1.1);
+}
+
+.profile-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* Animation pour attirer l'attention si pas configuré */
+@keyframes pulse-blue {
+    0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(96, 165, 250, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
+}
+
+.profile-btn.needs-setup {
+    animation: pulse-blue 2s infinite;
+}
+
+.profile-btn:hover {
+    background: rgba(96, 165, 250, 0.1);
+    transform: scale(1.1);
+}
+
+.profile-btn svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* --- Modal Style --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: none; /* Caché par défaut, géré par JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-glass {
+    background: #111;
+    border: 1px solid #333;
+    padding: 2.5rem 1.5rem;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff; }
+.modal-header p { color: #999; margin-bottom: 1.5rem; }
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    margin: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: white;
+    border-radius: 8px;
+    outline: none;
+}
+
+.modal-input:focus { border-color: var(--accent-blue); }
+
+.modal-close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 101;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.modal-close-x:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.profile-cards-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.profile-card {
+    flex: 1;
+    background: #1a1a1a;
+    padding: 1.2rem 0.5rem;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.profile-card:hover, .profile-card.selected {
+    border-color: var(--accent-blue);
+    background: rgba(96, 165, 250, 0.1);
+}
+
+/* Carte sélectionnée */
+.profile-card.selected {
+    border-color: var(--accent-blue);
+    background: rgba(96, 165, 250, 0.15);
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+}
+
+
+
+.card-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.profile-card h4 { font-size: 0.9rem; margin-bottom: 0.2rem; color: #fff; }
+.profile-card p { font-size: 0.75rem; color: #888; }
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 /* = 10. FOOTER = */
 
 footer {
@@ -1264,13 +1466,18 @@ footer {
     width: 100%;
 }
 
-/* = 10. RESPONSIVE (MOBILE) = */
+/* = 11. RESPONSIVE (MOBILE) = */
 
 @media (max-width: 800px) {
+    .nav-action-group {
+        gap: 1rem;
+        margin-right: 1rem;
+    }
+    
     .desktop-nav {
         display: none;
     }
-    /* Afficher le nouveau hamburger */
+    
     .hamburger {
         display: block;
     }
@@ -1354,11 +1561,6 @@ footer {
         border-color: #333;
     }
     
-    .timeline-content {
-        transform: none;
-        border-color: #333;
-    }
-
     .image-card:hover {
         transform: none;
     }
@@ -1419,6 +1621,66 @@ footer {
         justify-content: center;
         width: 100%;
     }
+    
+    .modal-glass {
+        padding: 3rem 1.5rem 2rem 1.5rem; /* Plus d'espace en haut pour la croix */
+        width: 95%;
+    }
+
+    .profile-cards-container {
+        flex-direction: column; /* On empile les cases */
+        gap: 12px;
+        max-height: 60vh; /* Évite que ça sorte de l'écran */
+        overflow-y: auto; /* Permet de scroller dans la modal si besoin */
+    }
+
+    .profile-card {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .card-icon {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+    }
+
+    .nav-action-group {
+        gap: 1rem;
+        margin-right: 4rem; /* Créer un espace de sécurité pour la croix */
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* On crée un groupe pour l'icône + le hamburger à droite */
+    .right-actions-mobile {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Espace entre la main et le hamburger */
+    }
+
+    /* On s'assure que l'icône de profil est visible sur mobile */
+    .profile-btn {
+        display: flex !important; /* Force l'affichage */
+        order: 1; /* Positionne avant le hamburger si besoin */
+    }
+
+    .hamburger {
+        display: block; /* Déjà présent dans votre code */
+        order: 2;
+    }
+    
+    /* On cache le reste du groupe desktop qui ne doit pas apparaître */
+    .desktop-nav {
+        display: none;
+    }
 }
 
 @media (max-width: 550px) {
@@ -1432,5 +1694,67 @@ footer {
 
     .texte-simulateur {
         display: none;
+    }
+}
+
+/* --- SUR GRAND ÉCRAN (Desktop) --- */
+@media (min-width: 769px) {
+    .desktop-nav {
+        display: block; /* Affiche le menu Accueil, Projets, etc. */
+    }
+
+    .hamburger {
+        display: none; /* Cache le hamburger sur PC */
+    }
+
+    /* Optionnel : Si vous voulez aussi la main sur PC à droite du menu */
+    .right-actions-mobile {
+        display: flex;
+    }
+}
+
+/* --- Structure globale du Header --- */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Logo à gauche, reste à droite */
+    align-items: center;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Le wrapper qui contient menu + main + hamburger */
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Espace entre le texte (Contact) et la main */
+}
+
+.right-actions-mobile {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: nowrap; 
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap; /* Garde le logo à gauche et le reste à droite */
+    }
+
+    .desktop-nav {
+        display: none; /* On cache bien le texte Accueil, Projets... */
+    }
+
+    /* On s'assure que le bouton de profil ne rétrécit pas */
+    .profile-btn {
+        flex-shrink: 0; 
+        display: flex !important;
     }
 }
